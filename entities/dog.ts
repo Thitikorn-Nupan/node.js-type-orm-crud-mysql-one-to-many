@@ -3,28 +3,27 @@ import {Breed} from "./breed";
 
 @Entity("dogs")
 export class Dog {
-    @PrimaryColumn({ type: "int",generated:true})
-    did : number
+    @PrimaryColumn({type: "int", generated: true})
+    did: number
     @Column({type: "varchar"})
-    sku : string
+    sku: string
     @Column({type: "varchar"})
-    nickname : string
+    nickname: string
     @Column({type: "int"})
-    age : number
+    age: number
     @Column({type: "boolean"})
-    alive : boolean
+    alive: boolean
     @ManyToOne(
         () => Breed,
         (breed) => breed.dogs
     )
-    // by default it will gen as breedId and it's not mine column
-    // use @JoinColum to map fk on your own
+    // by default it will gen as breedId and it's not my column ,  use @JoinColum to map fk on your own
     @JoinColumn({
         name: "bid",
         referencedColumnName: "bid",
     })
-    breed : Breed
-    /*
+    breed: Breed
+    /**
     // optional
     @Column({type: "int"})
     bid : number

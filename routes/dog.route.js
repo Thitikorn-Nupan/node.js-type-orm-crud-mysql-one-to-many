@@ -3,10 +3,8 @@ import bodyParser from "body-parser";
 import {DogControl} from "../controllers/dog.control.js";
 
 
-// export class BreedRouter extends WinstonLogger{
 // ***  BreedRouter -> BreedController *** it works as single class
 export class DogRoute extends DogControl {
-
     route = express.Router();
     constructor() {
         super()
@@ -18,5 +16,4 @@ export class DogRoute extends DogControl {
         this.route.put("/dog",this.updateDog)
         this.route.delete("/dog",this.deleteDog)
     }
-
 }

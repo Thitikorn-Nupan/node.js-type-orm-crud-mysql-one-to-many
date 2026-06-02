@@ -4,9 +4,7 @@ import {log} from "../logger/winston.logger.js";
 // can't extend service
 const breedService = new BreedService();
 
-
 export class BreedControl {
-
     /*
     Work but new instant by prop get error
     async getBreeds(req, res) {
@@ -18,7 +16,6 @@ export class BreedControl {
             })
     }
     */
-
 
     async getBreeds(req, res) {
         return await breedService
@@ -64,7 +61,6 @@ export class BreedControl {
                 return res.status(200).json(result)
             })
     }
-
 }
 
 

@@ -1,7 +1,7 @@
 import {DataSource} from 'typeorm';
 import path from "path";
 import dotenv from 'dotenv'
-
+import {log} from '../logger/winston.logger.js';
 // import {Breed} from "../entities/breed.ts";
 // import {Dog} from "../entities/dog.ts";
 // if import auto just check a type of file it auto give you a *.js
@@ -12,9 +12,8 @@ import dotenv from 'dotenv'
 // ** config the environment file
 dotenv.config({path: path.resolve('./env/.env'), debug: true})
 
-export class ConnectDB {
-    // config option
-    #dataConfig = {
+export class DbConfig {
+    dataSource = new DataSource({ // config option
         type: 'mysql', // type of the database
         port: process.env.MYSQLL_PORT, //type of the database
         host: process.env.MYSQLL_HOST,// port number
@@ -25,16 +24,16 @@ export class ConnectDB {
         // entities : [Breed,Dog] , // Tables to be queried from the database.
         entities: ['entities/*.{ts,js}'], // Tables to be queried from the database.
         logging: true // for log sql command
-    }
-    dataSource = new DataSource(this.#dataConfig)
-    /*
-        main() {
-            this.dataSource.initialize().then((dataSource) => {
-                log.info("Connected to database...")
-            })
-        }
-    */
+    })
+    /**testConfig() {
+        this.dataSource.initialize().then((dataSource) => {
+            log.info("Connected to database...")
+        })
+    }*/
 }
+
+
+
 
 
 

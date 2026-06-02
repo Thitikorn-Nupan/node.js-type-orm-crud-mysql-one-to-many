@@ -2,13 +2,9 @@ import express from "express"
 import bodyParser from "body-parser";
 import {BreedControl} from "../controllers/breed.control.js";
 
-
-// export class BreedRouter extends WinstonLogger{
-// ***  BreedRouter -> BreedController *** it works as single class
+// BreedRouter -> BreedController *** it works as single class
 export class BreedRouter extends BreedControl {
-
     route = express.Router();
-
     constructor() {
         super()
         this.route.use(bodyParser.json());
@@ -19,5 +15,4 @@ export class BreedRouter extends BreedControl {
         this.route.put("/breed",this.updateBreed)
         this.route.delete("/breed",this.deleteBreed)
     }
-
 }

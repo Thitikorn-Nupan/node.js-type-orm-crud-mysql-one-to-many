@@ -4,6 +4,7 @@ import {Dog} from "../entities/dog.ts";
 const dogService = new DogService();
 
 export class DogControl {
+
     async getDogs(req, res) {
         return await dogService
             .getDogs()
@@ -48,7 +49,6 @@ export class DogControl {
             return res.status(200).json(dog)
         })
     }
-
 
     async deleteDog(req, res) {
         const did = req.query['did'];
